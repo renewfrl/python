@@ -2,7 +2,7 @@
 
 from flask_script import Manager
 from flask import Flask
-from task import check_certs, print_results_to_screen, print_result_to_csv, print_results_to_ical
+from task_handler import check_certs, print_results_to_screen, print_result_to_csv
 
 # use Flask framework
 app = Flask(__name__)
@@ -20,9 +20,6 @@ def check_certificates_csv():
     res = check_certs()
     print_result_to_csv(res)
 
-@manager.command
-    res = check_certs()
-    print_results_to_ical(res)
 
 if __name__ == "__main__":
     manager.run()
